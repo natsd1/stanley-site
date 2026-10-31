@@ -12,7 +12,7 @@ export const site = {
     telegramHandle: "@Defi_senseii",
   },
   // Drop a portrait at /public/images/stanley.jpg and set this to "/images/stanley.jpg".
-  portrait: null as string | null,
+  portrait: "/images/stanley.jpg" as string | null,
   // Set to false when you're fully booked.
   available: true,
 } as const;

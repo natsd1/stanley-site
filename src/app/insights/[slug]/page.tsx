@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -70,9 +71,13 @@ export default async function ArticlePage({ params }: Props) {
             <aside className="lg:col-span-3">
               <div className="space-y-8 lg:sticky lg:top-28">
                 <div className="flex items-center gap-3">
-                  <span className="grid size-10 place-items-center rounded-full bg-accent font-mono text-sm font-bold text-ink" aria-hidden="true">
-                    S
-                  </span>
+                  {site.portrait ? (
+                    <Image src={site.portrait} alt="" width={40} height={40} className="size-10 rounded-full object-cover" />
+                  ) : (
+                    <span className="grid size-10 place-items-center rounded-full bg-accent font-mono text-sm font-bold text-ink" aria-hidden="true">
+                      S
+                    </span>
+                  )}
                   <div className="text-sm">
                     <p className="font-medium">Stanley</p>
                     <p className="text-dim">@{site.handle}</p>

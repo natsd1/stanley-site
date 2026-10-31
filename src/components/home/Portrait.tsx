@@ -6,15 +6,15 @@ import { site } from "@/lib/site";
 export function Portrait({ className }: { className?: string }) {
   return (
     <figure className={clsx("relative", className)}>
-      <div className="relative aspect-[4/5] overflow-hidden rounded-[4px] border border-line bg-surface">
+      <div className={clsx("relative overflow-hidden rounded-[4px] border border-line bg-surface", site.portrait ? "aspect-square" : "aspect-[4/5]")}>
         {site.portrait ? (
           <Image
             src={site.portrait}
-            alt="Portrait of Stanley"
+            alt="Stanley's profile picture"
             fill
             priority
             sizes="(min-width: 1024px) 30vw, 90vw"
-            className="object-cover grayscale"
+            className="object-cover"
           />
         ) : (
           <>
