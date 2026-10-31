@@ -423,7 +423,16 @@ export const projects: Project[] = [
           alt: "Stanley's Discord announcement to the Flux Fam: a year-end AMA on X Spaces on 28 December 2023 at 8 PM, with prizes raffled at the end and questions collected in the ama-questions channel. The post has 13 fire, 9 cheers, 6 party, 5 thumbs-up, 6 rocket and 6 check reactions.",
         },
       },
-      { label: "Player feedback", hint: "Messages from community members" },
+      {
+        label: "Community engagement",
+        hint: "Discord, 19 Mar 2024",
+        image: {
+          src: "/images/work/fluxpoint-community-feedback.jpg",
+          width: 1290,
+          height: 1801,
+          alt: "FluxPoint Discord, 19 March 2024. Community member FluxFamFlamTam shares artwork of an armoured ninja character, saying 1,721 XP is needed to finish it off and “This one is bloomin awesome!” FluxPoint's CEO, decimalist, replies: “Looking forward to the day we add this guy into TRIB3.”",
+        },
+      },
     ],
     takeaways: ["Gaming communities stay for the people. Look after them between releases, not just at launch."],
   },

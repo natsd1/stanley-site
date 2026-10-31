@@ -202,10 +202,13 @@ export default async function CaseStudyPage({ params }: Props) {
                 ? "Unedited screenshots from the project. More available on request."
                 : "Screenshots and proof are being added. Ask me directly and I'll share them."}
             </p>
-            <ul className="grid gap-4 sm:grid-cols-2">
+            <ul className="grid items-start gap-4 sm:grid-cols-2">
               {p.evidence.map((e) =>
                 e.image ? (
-                  <li key={e.label} className="sm:col-span-2">
+                  <li
+                    key={e.label}
+                    className={p.evidence!.filter((x) => x.image).length > 1 ? undefined : "sm:col-span-2"}
+                  >
                     <figure className="overflow-hidden rounded-[4px] border border-line bg-surface">
                       <div className="flex items-center justify-between border-b border-line px-4 py-3">
                         <span className="text-sm font-medium">{e.label}</span>
@@ -216,7 +219,7 @@ export default async function CaseStudyPage({ params }: Props) {
                         alt={e.image.alt}
                         width={e.image.width}
                         height={e.image.height}
-                        sizes="(min-width: 1024px) 800px, 100vw"
+                        sizes="(min-width: 1024px) 800px, (min-width: 640px) 50vw, 100vw"
                         className="mx-auto h-auto w-full max-w-2xl"
                       />
                     </figure>
