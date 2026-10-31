@@ -1,12 +1,36 @@
+import Image from "next/image";
 import { Container } from "../ui/Container";
+import { Reveal } from "../ui/Reveal";
 import { Em, SectionHeading } from "../ui/SectionHeading";
 
 /**
- * Placeholder testimonial slots. Replace `slots` with real quotes once you have
- * written permission from the person quoted. Never publish invented testimonials.
+ * Real screenshots of feedback. To add one: put the image in
+ * public/images/testimonials/ and add an entry below (width/height = image size in pixels).
+ * `alt` should repeat what the message says, for screen readers and search engines.
  */
-type Testimonial = { quote: string; name: string; role: string } | null;
-const slots: Testimonial[] = [null, null, null];
+const screenshots = [
+  {
+    src: "/images/testimonials/discord-culture.jpg",
+    width: 1280,
+    height: 592,
+    source: "Discord",
+    alt: "Discord messages. Fenrir: “Stan knows the culture well.” Thor in #marketing-chat: “Stan the man killing it as per usual.”",
+  },
+  {
+    src: "/images/testimonials/discord-twitter-admin.jpg",
+    width: 1280,
+    height: 724,
+    source: "Discord",
+    alt: "Discord messages. thatbagholder: “I like how active the twitter is, props to the twitter admin.” Forseti replies: “Props goes to @Stan.”",
+  },
+  {
+    src: "/images/testimonials/telegram-perfect-content.jpg",
+    width: 1280,
+    height: 824,
+    source: "Telegram",
+    alt: "Telegram chat. YZ Z: “thx Stan.” Stan: “You're welcome. Just need your go ahead on when you want to post out or anything you want to be added or removed.” YZ Z: “Perfect content.”",
+  },
+];
 
 export function Testimonials() {
   return (
@@ -17,49 +41,32 @@ export function Testimonials() {
           eyebrow="Testimonials"
           title={
             <span id="testimonials-title">
-              Words from <Em>the people I&apos;ve worked with.</Em>
+              Straight from <Em>the group chats.</Em>
             </span>
           }
-          intro={
-            <>
-              Being collected now. These slots stay empty until real people say real things, because fake
-              testimonials are the most crypto thing a site can do, in the worst way.
-            </>
-          }
+          intro="No polished quotes. These are unedited screenshots from Discord and Telegram, from the communities and teams I've worked with."
         />
-        <ul className="mt-14 grid gap-6 md:grid-cols-3">
-          {slots.map((t, i) =>
-            t ? (
-              <li key={i} className="flex flex-col rounded-[4px] border border-line bg-surface p-8">
-                <span className="font-serif text-6xl leading-none text-accent" aria-hidden="true">“</span>
-                <blockquote className="mt-4 flex-1 text-lg">{t.quote}</blockquote>
-                <p className="mt-8 text-sm">
-                  <span className="font-medium">{t.name}</span> <span className="text-dim">· {t.role}</span>
-                </p>
-              </li>
-            ) : (
-              <li
-                key={i}
-                className="flex min-h-[260px] flex-col rounded-[4px] border border-dashed border-line-strong p-8"
-              >
-                <div className="flex items-start justify-between">
-                  <span className="font-serif text-6xl leading-none text-line-strong" aria-hidden="true">“</span>
-                  <span className="label">Slot 0{i + 1}</span>
-                </div>
-                <p className="mt-4 flex-1 text-dim">
-                  Reserved for a founder, team lead or community member from a project I&apos;ve worked on.
-                </p>
-                <div className="mt-8 flex items-center gap-3">
-                  <span className="size-9 rounded-full border border-dashed border-line-strong" aria-hidden="true" />
-                  <div className="space-y-1.5" aria-hidden="true">
-                    <span className="block h-2 w-24 rounded bg-surface-2" />
-                    <span className="block h-2 w-16 rounded bg-surface-2" />
+        <ul className="mt-14 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {screenshots.map((s, i) => (
+            <li key={s.src}>
+              <Reveal delay={0.06 * i}>
+                <figure className="group overflow-hidden rounded-[4px] border border-line bg-surface transition-colors hover:border-line-strong">
+                  <div className="flex items-center justify-between border-b border-line px-4 py-3">
+                    <span className="label">{s.source}</span>
+                    <span className="font-mono text-[0.65rem] uppercase tracking-[0.08em] text-accent">Unedited</span>
                   </div>
-                  <span className="sr-only">Placeholder testimonial</span>
-                </div>
-              </li>
-            ),
-          )}
+                  <Image
+                    src={s.src}
+                    alt={s.alt}
+                    width={s.width}
+                    height={s.height}
+                    sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
+                    className="h-auto w-full"
+                  />
+                </figure>
+              </Reveal>
+            </li>
+          ))}
         </ul>
       </Container>
     </section>
