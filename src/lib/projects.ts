@@ -244,11 +244,11 @@ export const projects: Project[] = [
     strategy: [
       {
         title: "Consistency as a strategy",
-        body: "For a tool traders use every day, the brand should show up every day too. A steady posting rhythm built familiarity and kept Axxel in the feed.",
+        body: "For a tool traders use every day, the brand should show up every day too. The daily targets: 3–5 original posts, 20+ valuable replies and one community conversation or poll, seven days a week.",
       },
       {
         title: "Education over announcements",
-        body: "Product posts focused on what a trader can actually do with a feature, turning release notes into reasons to try the terminal.",
+        body: "Product posts focused on what a trader can actually do with a feature, turning release notes into reasons to try the terminal. The content mix: 35% product, 25% education, 20% culture, 20% community.",
       },
       {
         title: "Positioning in plain language",
@@ -301,6 +301,16 @@ export const projects: Project[] = [
         ],
       },
       {
+        label: "Content plan",
+        hint: "Daily targets & content mix",
+        image: {
+          src: "/images/work/axxel-content-plan.png",
+          width: 1026,
+          height: 552,
+          alt: "Axxel content plan. Daily distribution targets: 3 to 5 original posts, 20+ valuable replies, 1 community interaction (a conversation or poll), active 7 days a week. Content mix: 35% product, 25% education, 20% culture, 20% community.",
+        },
+      },
+      {
         label: "X account analytics",
         hint: "7 days, Aug 15–21",
         image: {
@@ -310,7 +320,6 @@ export const projects: Project[] = [
           alt: "Axxel X account analytics for Aug 15 to 21: 33.3K impressions (up 34%), 4.1% engagement rate (up 11%), 306 profile visits (up 45%), 67 new follows (up 81%), 55 replies (up 25%) and 401 likes (up 43%), with a daily bar chart.",
         },
       },
-      { label: "Content calendar sample", hint: "A week of planned posts (redacted if needed)" },
     ],
     takeaways: [
       "In trading tools, education is marketing. Show the edge and people will try it.",
