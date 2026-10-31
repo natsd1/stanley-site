@@ -11,6 +11,8 @@ const ticker = [
   { k: "DISCORD", v: "16,000 members", up: true },
   { k: "PEAK ACTIVE", v: "10,000", up: true },
   { k: "COMBINED SOCIAL", v: "21,000+", up: true },
+  { k: "ODINBOT VOLUME", v: "$250M", up: true },
+  { k: "ODINBOT REVENUE", v: "$1.6M", up: true },
   { k: "KONOHA", v: "500+ onboarded", up: true },
   { k: "SECTORS", v: "DeFi · Trading · Infra · Gaming · Consumer" },
 ];

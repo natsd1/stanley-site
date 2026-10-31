@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, ImageIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ImageIcon } from "lucide-react";
+import { XIcon } from "@/components/ui/Icons";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Em } from "@/components/ui/SectionHeading";
@@ -94,7 +95,11 @@ export default async function CaseStudyPage({ params }: Props) {
           <Container>
             <div
               className={`grid gap-px overflow-hidden rounded-[4px] border border-line bg-line ${
-                p.headline.length >= 4 ? "sm:grid-cols-2 lg:grid-cols-4" : p.headline.length > 1 ? "sm:grid-cols-2" : ""
+                p.headline.length % 3 === 0 && p.headline.length > 3
+                  ? "sm:grid-cols-2 lg:grid-cols-3"
+                  : p.headline.length >= 4
+                    ? "sm:grid-cols-2 lg:grid-cols-4"
+                    : p.headline.length > 1 ? "sm:grid-cols-2" : ""
               }`}
             >
               {p.headline.map((m) => (
@@ -176,7 +181,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <CaseSection index="06" title="Results" aside={<ResultLegend className="mt-6" />}>
             <ul className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2">
               {p.results.map((r) => (
-                <li key={r.label} className="flex flex-col bg-bg p-6 sm:p-8">
+                <li key={r.label} className="flex flex-col bg-bg p-6 sm:p-8 sm:[&:last-child:nth-child(odd)]:col-span-2">
                   <ResultTag kind={r.kind} />
                   {r.value && <p className="mt-6 text-4xl font-semibold tracking-[-0.04em]">{r.value}</p>}
                   <p
@@ -189,6 +194,16 @@ export default async function CaseStudyPage({ params }: Props) {
                     {r.label}
                   </p>
                   {r.note && <p className="mt-2 text-sm text-dim">{r.note}</p>}
+                  {r.link && (
+                    <a
+                      href={r.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex w-fit items-center gap-1.5 text-sm text-fg hover:text-accent"
+                    >
+                      {r.link.label} <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -202,42 +217,65 @@ export default async function CaseStudyPage({ params }: Props) {
                 ? "Unedited screenshots from the project. More available on request."
                 : "Screenshots and proof are being added. Ask me directly and I'll share them."}
             </p>
-            <ul className="grid items-start gap-4 sm:grid-cols-2">
+            {/* Masonry columns so tall screenshots and short link cards pack neatly */}
+            <ul className="gap-4 sm:columns-2 [&>li]:mb-4 [&>li]:break-inside-avoid">
               {p.evidence.map((e) =>
                 e.image ? (
-                  <li
-                    key={e.label}
-                    className={p.evidence!.filter((x) => x.image).length > 1 ? undefined : "sm:col-span-2"}
-                  >
+                  <li key={e.label}>
                     <figure className="overflow-hidden rounded-[4px] border border-line bg-surface">
-                      <div className="flex items-center justify-between border-b border-line px-4 py-3">
+                      <div className="flex items-center justify-between gap-4 border-b border-line px-4 py-3">
                         <span className="text-sm font-medium">{e.label}</span>
-                        <span className="label">{e.hint}</span>
+                        <span className="label text-right">{e.hint}</span>
                       </div>
                       <Image
                         src={e.image.src}
                         alt={e.image.alt}
                         width={e.image.width}
                         height={e.image.height}
-                        sizes="(min-width: 1024px) 800px, (min-width: 640px) 50vw, 100vw"
-                        className="mx-auto h-auto w-full max-w-2xl"
+                        sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                        className="h-auto w-full"
                       />
                     </figure>
                   </li>
+                ) : e.links ? (
+                  <li key={e.label} className="rounded-[4px] border border-line bg-surface">
+                    <div className="flex items-center justify-between gap-4 border-b border-line px-4 py-3">
+                      <span className="text-sm font-medium">{e.label}</span>
+                      <span className="label text-right">{e.hint}</span>
+                    </div>
+                    <ul>
+                      {e.links.map((l) => (
+                        <li key={l.href} className="border-b border-line last:border-b-0">
+                          <a
+                            href={l.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-4 px-4 py-4 transition-colors hover:bg-surface-2"
+                          >
+                            <XIcon className="size-4 shrink-0 text-muted" />
+                            <span className="flex-1 font-medium transition-colors group-hover:text-accent">{l.label}</span>
+                            {l.meta && <span className="font-mono text-xs text-dim">{l.meta}</span>}
+                            <ArrowUpRight className="size-4 text-dim group-hover:text-accent" aria-hidden="true" />
+                            <span className="sr-only">(opens on X in a new tab)</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
                 ) : (
-                <li
-                  key={e.label}
-                  className="flex aspect-[16/10] flex-col justify-between rounded-[4px] border border-dashed border-line-strong bg-surface/50 p-5"
-                >
-                  <div className="flex items-center justify-between">
-                    <ResultTag kind="placeholder" />
-                    <ImageIcon className="size-5 text-dim" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="font-medium">{e.label}</p>
-                    <p className="mt-1 text-sm text-dim">{e.hint}</p>
-                  </div>
-                </li>
+                  <li
+                    key={e.label}
+                    className="flex aspect-[16/10] flex-col justify-between rounded-[4px] border border-dashed border-line-strong bg-surface/50 p-5"
+                  >
+                    <div className="flex items-center justify-between">
+                      <ResultTag kind="placeholder" />
+                      <ImageIcon className="size-5 text-dim" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="font-medium">{e.label}</p>
+                      <p className="mt-1 text-sm text-dim">{e.hint}</p>
+                    </div>
+                  </li>
                 ),
               )}
             </ul>
