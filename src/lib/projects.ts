@@ -54,6 +54,8 @@ export type Project = {
     label: string;
     hint: string;
     image?: { src: string; width: number; height: number; alt: string };
+    /** A video file in /public (mp4), played inline with controls */
+    video?: { src: string; poster: string; width: number; height: number; title: string };
     /** Short line shown under the screenshot, e.g. the key number it proves */
     caption?: string;
     /** External proof links (e.g. posts on X). Shown as a link card. */
@@ -216,6 +218,7 @@ export const projects: Project[] = [
     index: "02",
     role: "Social Media / Growth",
     sector: "Trading terminal",
+    logo: "/images/axxel-logo.png",
     tagline: "Showing up every day, on purpose.",
     summary:
       "Daily X content, engagement and product education for a crypto trading terminal, built to keep Axxel visible and easy to understand.",
@@ -223,6 +226,11 @@ export const projects: Project[] = [
     featured: true,
     hasCaseStudy: true,
     focus: ["X content", "Daily engagement", "Product education", "Positioning"],
+    headline: [
+      { kind: "verified", value: "33.3K", label: "X impressions in 7 days (up 34%)" },
+      { kind: "verified", value: "4.1%", label: "Engagement rate (up 11%)" },
+      { kind: "verified", value: "+81%", label: "New follows vs previous 7 days" },
+    ],
     overview: [
       "Axxel is a crypto trading terminal. Terminals are hard to explain in a single post, and traders switch tools only when they clearly see the edge.",
       "My role covered social media and growth: keeping the X presence consistent, explaining the product in plain language and positioning Axxel clearly in a crowded market.",
@@ -255,6 +263,14 @@ export const projects: Project[] = [
     ],
     results: [
       {
+        kind: "verified",
+        value: "33.3K",
+        label: "X impressions in 7 days, up 34%",
+        note: "Aug 15–21. Same week: 306 profile visits (up 45%), 401 likes (up 43%), 55 replies (up 25%).",
+      },
+      { kind: "verified", value: "4.1%", label: "Engagement rate, up 11%", note: "Same 7-day period." },
+      { kind: "verified", value: "67", label: "New follows in 7 days, up 81%", note: "Same 7-day period." },
+      {
         kind: "qualitative",
         label: "Consistent daily presence",
         note: "A reliable posting cadence for the brand on X.",
@@ -264,12 +280,36 @@ export const projects: Project[] = [
         label: "Clearer product story",
         note: "Feature education that translated terminal functionality into trader benefits.",
       },
-      { kind: "placeholder", label: "Follower / impression growth", note: "Add verified X analytics here." },
-      { kind: "placeholder", label: "Engagement rate", note: "Add a before/after figure if you have one." },
     ],
     evidence: [
-      { label: "X analytics overview", hint: "Impressions, engagement, follower change" },
-      { label: "Product explainer thread", hint: "Screenshot or link to a strong educational post" },
+      {
+        label: "Product explainer video",
+        hint: "Posted on X, Aug 2026",
+        video: {
+          src: "/videos/axxel-explainer.mp4",
+          poster: "/videos/axxel-explainer-poster.jpg",
+          width: 1920,
+          height: 1080,
+          title: "Axxel product explainer: a terminal-style walkthrough of Axxel's multi-chain trading setup",
+        },
+        links: [
+          {
+            href: "https://x.com/axxel_ai/status/2086076308228846037",
+            label: "View the original post on X",
+            meta: "@axxel_ai",
+          },
+        ],
+      },
+      {
+        label: "X account analytics",
+        hint: "7 days, Aug 15–21",
+        image: {
+          src: "/images/work/axxel-x-analytics.jpg",
+          width: 923,
+          height: 1480,
+          alt: "Axxel X account analytics for Aug 15 to 21: 33.3K impressions (up 34%), 4.1% engagement rate (up 11%), 306 profile visits (up 45%), 67 new follows (up 81%), 55 replies (up 25%) and 401 likes (up 43%), with a daily bar chart.",
+        },
+      },
       { label: "Content calendar sample", hint: "A week of planned posts (redacted if needed)" },
     ],
     takeaways: [

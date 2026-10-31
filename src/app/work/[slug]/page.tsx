@@ -95,7 +95,9 @@ export default async function CaseStudyPage({ params }: Props) {
           <Container>
             <div
               className={`grid gap-px overflow-hidden rounded-[4px] border border-line bg-line ${
-                p.headline.length % 3 === 0 && p.headline.length > 3
+                p.headline.length === 3
+                  ? "sm:grid-cols-3"
+                  : p.headline.length % 3 === 0
                   ? "sm:grid-cols-2 lg:grid-cols-3"
                   : p.headline.length >= 4
                     ? "sm:grid-cols-2 lg:grid-cols-4"
@@ -213,14 +215,48 @@ export default async function CaseStudyPage({ params }: Props) {
         {p.evidence && (
           <CaseSection index="07" title="Visual evidence">
             <p className="mb-6 text-muted">
-              {p.evidence.some((e) => e.image)
-                ? "Unedited screenshots from the project. More available on request."
+              {p.evidence.some((e) => e.image || e.video)
+                ? "Unedited screenshots and media from the project. More available on request."
                 : "Screenshots and proof are being added. Ask me directly and I'll share them."}
             </p>
             {/* Masonry columns so tall screenshots and short link cards pack neatly */}
             <ul className="gap-4 sm:columns-2 [&>li]:mb-4 [&>li]:break-inside-avoid">
               {p.evidence.map((e) =>
-                e.image ? (
+                e.video ? (
+                  <li key={e.label} className="overflow-hidden rounded-[4px] border border-line bg-surface">
+                    <div className="flex items-center justify-between gap-4 border-b border-line px-4 py-3">
+                      <span className="text-sm font-medium">{e.label}</span>
+                      <span className="label text-right">{e.hint}</span>
+                    </div>
+                    <video
+                      controls
+                      playsInline
+                      preload="none"
+                      poster={e.video.poster}
+                      width={e.video.width}
+                      height={e.video.height}
+                      aria-label={e.video.title}
+                      className="block h-auto w-full bg-black"
+                    >
+                      <source src={e.video.src} type="video/mp4" />
+                    </video>
+                    {e.links?.map((l) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-4 border-t border-line px-4 py-4 transition-colors hover:bg-surface-2"
+                      >
+                        <XIcon className="size-4 shrink-0 text-muted" />
+                        <span className="flex-1 font-medium transition-colors group-hover:text-accent">{l.label}</span>
+                        {l.meta && <span className="font-mono text-xs text-dim">{l.meta}</span>}
+                        <ArrowUpRight className="size-4 text-dim group-hover:text-accent" aria-hidden="true" />
+                        <span className="sr-only">(opens on X in a new tab)</span>
+                      </a>
+                    ))}
+                  </li>
+                ) : e.image ? (
                   <li key={e.label}>
                     <figure className="overflow-hidden rounded-[4px] border border-line bg-surface">
                       <div className="flex items-center justify-between gap-4 border-b border-line px-4 py-3">

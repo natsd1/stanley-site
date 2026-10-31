@@ -162,7 +162,7 @@ export function ProjectVisual({
           width={160}
           height={160}
           className={clsx(
-            "absolute bottom-4 right-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:bottom-5 sm:right-5",
+            "absolute bottom-4 right-4 rounded-xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:bottom-5 sm:right-5",
             size === "lg" ? "size-16 sm:size-24 lg:size-28" : "size-14 sm:size-16",
           )}
         />
