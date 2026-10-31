@@ -6,6 +6,8 @@ export const site = {
   description:
     "Stanley is a social media manager for Web3, crypto and emerging tech. X growth, content strategy and community development that turns timelines into users.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  // Contact form inbox (Formspree). Override with NEXT_PUBLIC_FORM_ENDPOINT if needed.
+  formEndpoint: process.env.NEXT_PUBLIC_FORM_ENDPOINT || "https://formspree.io/f/mvkkwadq",
   links: {
     x: "https://x.com/DeFi_Senseii",
     telegram: "https://t.me/Defi_senseii",

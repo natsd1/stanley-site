@@ -37,5 +37,5 @@ Delete the sample articles (`sample: true`) once you have your own.
 
 1. Copy `.env.example` to `.env.local` (or set in your host):
    - `NEXT_PUBLIC_SITE_URL` — your real domain (canonical URLs, sitemap, OG image).
-   - `NEXT_PUBLIC_FORM_ENDPOINT` — a JSON form endpoint (e.g. Formspree). **Until this is set, the contact form does not send anything.** It tells visitors so and offers copy-to-clipboard + Telegram/X instead.
+   - Contact form: sends to Formspree (`formEndpoint` in `src/lib/site.ts`). Set `NEXT_PUBLIC_FORM_ENDPOINT` to override it. If the endpoint is ever removed, the form tells visitors it isn't connected and offers Telegram/X instead.
 2. Deploy to Vercel (zero config) or any Node host.

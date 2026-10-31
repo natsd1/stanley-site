@@ -6,7 +6,7 @@ import { AlertTriangle, ArrowUpRight, Check, Copy, Loader2 } from "lucide-react"
 import { site } from "@/lib/site";
 import { TelegramIcon, XIcon } from "../ui/Icons";
 
-const ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || "";
+const ENDPOINT: string = site.formEndpoint;
 
 export const budgets = [
   "Under $1,000 / month",
