@@ -8,14 +8,14 @@ import { PostRow } from "@/components/insights/PostRow";
 import { XIcon } from "@/components/ui/Icons";
 import { ButtonLink } from "@/components/ui/Button";
 import { absoluteUrl, site } from "@/lib/site";
-import { formatDate, getAllPosts, getPost, getRelated } from "@/lib/posts";
+import { formatDate, getLocalPosts, getPost, getRelated } from "@/lib/posts";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
+  return getLocalPosts().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

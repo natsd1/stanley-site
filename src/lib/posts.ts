@@ -3,8 +3,9 @@ import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
 import { categories, type PostMeta } from "./posts-shared";
+import { published } from "./published";
 
-export { categories, formatDate, type Category, type PostMeta } from "./posts-shared";
+export { categories, formatDate, postHref, type Category, type PostMeta } from "./posts-shared";
 
 /**
  * Insights are Markdown files in src/content/insights.
@@ -40,13 +41,19 @@ function readFile(file: string) {
   return { meta, content };
 }
 
-export function getAllPosts(): PostMeta[] {
+/** Articles written for this site (Markdown files), newest first. */
+export function getLocalPosts(): PostMeta[] {
   if (!fs.existsSync(DIR)) return [];
   return fs
     .readdirSync(DIR)
     .filter((f) => f.endsWith(".md"))
     .map((f) => readFile(f).meta)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+/** Everything shown in Insights: local articles, then writing published elsewhere (see published.ts). */
+export function getAllPosts(): PostMeta[] {
+  return [...getLocalPosts(), ...published];
 }
 
 export function getPost(slug: string): Post | null {
