@@ -419,13 +419,14 @@ export const projects: Project[] = [
     index: "05",
     role: "Community & Web3 Education",
     sector: "Web3 education",
+    logo: "/images/konoha-logo.png",
     tagline: "500+ beginners, onboarded properly.",
     summary:
       "Helped onboard and educate 500+ African Web3 beginners through community-led learning and development.",
     pattern: "dots",
     featured: true,
     hasCaseStudy: true,
-    focus: ["Web3 education", "Onboarding", "Community development"],
+    focus: ["Web3 education", "Live classes", "Onboarding", "Community development"],
     headline: [{ kind: "verified", value: "500+", label: "African Web3 beginners onboarded & educated" }],
     overview: [
       "A lot of Web3 talks about onboarding the next billion and then speaks only to people already inside. Konoha did the opposite: start from zero and teach properly.",
@@ -452,7 +453,18 @@ export const projects: Project[] = [
     ],
     execution: [
       { title: "Onboarding", body: "Guided newcomers through their first steps into Web3." },
-      { title: "Education", body: "Delivered and supported learning sessions and resources for beginners." },
+      {
+        title: "Live classes",
+        body: "Ran regular community classes, such as a multi-day crypto trading class covering TA and FA, with recordings for anyone who missed a session.",
+      },
+      {
+        title: "Accountability groups",
+        body: "Organised learners into groups with leaders, plus polls and check-ins, so people kept showing up between classes.",
+      },
+      {
+        title: "DeFi for beginners",
+        body: "Hosted “DeFi Unlocked”, a one-hour live session on Telegram, and wrote a How to DeFi beginner guide (PDF) shared with the audience.",
+      },
       { title: "Community development", body: "Grew and looked after the community so learning kept going between sessions." },
     ],
     results: [
@@ -462,11 +474,38 @@ export const projects: Project[] = [
         label: "Beginner-first community",
         note: "A space where first-time users could learn without being talked down to.",
       },
-      { kind: "placeholder", label: "Sessions / cohorts run", note: "Add the number if you tracked it." },
+      {
+        kind: "qualitative",
+        label: "Recurring live classes",
+        note: "Multi-day classes like crypto trading (TA vs FA), with recordings and accountability groups.",
+      },
+      {
+        kind: "qualitative",
+        label: "DeFi Unlocked + beginner PDF",
+        note: "A one-hour live session on Telegram and a How to DeFi beginner guide, each post seen by 1.2K–1.5K people.",
+      },
     ],
     evidence: [
-      { label: "Community photos or session screenshots", hint: "With permission from participants" },
-      { label: "Learning materials", hint: "A slide, guide or thread you created" },
+      {
+        label: "Class announcement",
+        hint: "Telegram, 20 Oct 2023",
+        image: {
+          src: "/images/work/konoha-class-announcement.png",
+          width: 715,
+          height: 901,
+          alt: "Community announcement on Telegram, 20 October 2023: the crypto trading class continues tonight at 9 PM after covering TA and the difference between FA and TA; a recording is available for anyone who missed it; a guest session at 8:30 PM; group leaders from the fearless session asked to submit their groups; and a reminder to vote in the accountability group poll.",
+        },
+      },
+      {
+        label: "DeFi Unlocked & beginner guide",
+        hint: "Telegram",
+        image: {
+          src: "/images/work/konoha-defi-unlocked.jpg",
+          width: 1290,
+          height: 1884,
+          alt: "Telegram channel posts: “We're LIVE on Telegram! DeFi Unlocked with yours truly @defi_senseii” (1.2K views, 22 comments), followed by a one-hour live stream. Then the How to DeFi Beginner PDF is shared (1.5K views) with the message “Defi for beginners PDF. All thanks to @defi_Senseii. Enjoy” (1.4K views).",
+        },
+      },
     ],
     takeaways: [
       "Onboarding is a community job, not a landing-page job.",

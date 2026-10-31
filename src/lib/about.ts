@@ -51,7 +51,10 @@ export const experience: {
     project: "Konoha",
     role: "Community & Web3 Education",
     slug: "konoha",
-    points: ["Helped onboard and educate 500+ African Web3 beginners", "Community development and education"],
+    points: [
+      "Helped onboard and educate 500+ African Web3 beginners",
+      "Live classes, accountability groups and a How to DeFi beginner guide",
+    ],
   },
 ];
 
