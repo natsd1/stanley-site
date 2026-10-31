@@ -54,6 +54,8 @@ export type Project = {
     label: string;
     hint: string;
     image?: { src: string; width: number; height: number; alt: string };
+    /** Short line shown under the screenshot, e.g. the key number it proves */
+    caption?: string;
     /** External proof links (e.g. posts on X). Shown as a link card. */
     links?: { href: string; label: string; meta?: string }[];
   }[];
@@ -190,7 +192,17 @@ export const projects: Project[] = [
           },
         ],
       },
-      { label: "Discord server insights", hint: "Member count + active users at peak" },
+      {
+        label: "Discord members",
+        hint: "Admin view",
+        caption: "16,951 members on the OdinBot Discord. Names blurred for privacy.",
+        image: {
+          src: "/images/work/odinbot-discord-members.jpg",
+          width: 1333,
+          height: 1068,
+          alt: "OdinBot Discord server's admin Members page, showing 16,951 members in total. Member names and avatars are blurred for privacy.",
+        },
+      },
     ],
     takeaways: [
       "Small accounts grow fastest when they sound like the people they want to reach.",

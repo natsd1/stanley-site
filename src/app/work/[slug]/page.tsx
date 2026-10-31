@@ -235,6 +235,9 @@ export default async function CaseStudyPage({ params }: Props) {
                         sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
                         className="h-auto w-full"
                       />
+                      {e.caption && (
+                        <figcaption className="border-t border-line px-4 py-3 text-sm text-muted">{e.caption}</figcaption>
+                      )}
                     </figure>
                   </li>
                 ) : e.links ? (
