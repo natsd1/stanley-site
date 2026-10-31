@@ -34,10 +34,10 @@ export const experience: {
     points: ["Social content distribution", "Short-form content and creator-focused growth"],
   },
   {
-    project: "Blocktopia",
-    role: "Social Media Management",
-    slug: "blocktopia",
-    points: ["Social media management", "Content and community engagement"],
+    project: "FluxPoint",
+    role: "Community Manager",
+    slug: "fluxpoint",
+    points: ["Community management for a Web3 gaming project on Cardano", "Player engagement and team ↔ community communication"],
   },
   {
     project: "Konoha",

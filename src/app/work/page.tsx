@@ -13,7 +13,7 @@ import { getProject, projectHref, projects } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "Work & Case Studies",
   description:
-    "Case studies from OdinBot, Axxel, Konoha, SocialFun and Blocktopia: X growth, Discord communities, content and Web3 education.",
+    "Case studies from OdinBot, Axxel, Konoha, SocialFun and FluxPoint: X growth, Discord communities, content, Web3 gaming and education.",
   alternates: { canonical: "/work" },
 };
 

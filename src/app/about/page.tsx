@@ -65,7 +65,8 @@ export default function AboutPage() {
               across platforms before the project was acquired by Cielo Finance.
             </p>
             <p>
-              I&apos;ve also worked on social for Axxel, SocialFun and Blocktopia, and through Konoha I helped onboard
+              I&apos;ve also worked on social for Axxel and SocialFun, managed the community for FluxPoint, a Web3
+              game on Cardano, and through Konoha I helped onboard
               and educate 500+ African Web3 beginners. Teaching people from zero is still the best growth lesson I
               know: if you can&apos;t explain it simply, nobody shares it.
             </p>
