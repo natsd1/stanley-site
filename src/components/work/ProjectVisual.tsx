@@ -1,3 +1,4 @@
+import Image from "next/image";
 import clsx from "clsx";
 import type { Pattern, Project } from "@/lib/projects";
 
@@ -126,7 +127,7 @@ export function ProjectVisual({
   size = "md",
   showName = true,
 }: {
-  project: Pick<Project, "name" | "index" | "sector" | "pattern">;
+  project: Pick<Project, "name" | "index" | "sector" | "pattern" | "logo">;
   className?: string;
   size?: "md" | "lg";
   showName?: boolean;
@@ -154,6 +155,18 @@ export function ProjectVisual({
         <span className="rounded-sm bg-bg/80 px-1.5 py-0.5 backdrop-blur-sm">Case {project.index}</span>
         <span className="rounded-sm bg-bg/80 px-1.5 py-0.5 backdrop-blur-sm">{project.sector}</span>
       </div>
+      {project.logo && (
+        <Image
+          src={project.logo}
+          alt={`${project.name} logo`}
+          width={160}
+          height={160}
+          className={clsx(
+            "absolute bottom-4 right-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)] sm:bottom-5 sm:right-5",
+            size === "lg" ? "size-16 sm:size-24 lg:size-28" : "size-14 sm:size-16",
+          )}
+        />
+      )}
       {showName && (
       <p
         className={clsx(

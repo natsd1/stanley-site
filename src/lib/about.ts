@@ -36,8 +36,13 @@ export const experience: {
   {
     project: "FluxPoint",
     role: "Community Manager",
+    period: "2023 — 2024",
     slug: "fluxpoint",
-    points: ["Community management for a Web3 gaming project on Cardano", "Player engagement and team ↔ community communication"],
+    points: [
+      "Community management for a Web3 game on Cardano",
+      "2,500-member Discord and 11,000 followers on X",
+      "AMAs on X Spaces, announcements and player engagement",
+    ],
   },
   {
     project: "Konoha",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ImageIcon } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -57,7 +58,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <dl className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-line bg-line lg:grid-cols-4">
+            <dl className={`mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-line bg-line ${p.period ? "lg:grid-cols-5" : "lg:grid-cols-4"}`}>
               <div className="bg-bg p-5">
                 <dt className="label">Role</dt>
                 <dd className="mt-2 font-medium">{p.role}</dd>
@@ -66,7 +67,13 @@ export default async function CaseStudyPage({ params }: Props) {
                 <dt className="label">Sector</dt>
                 <dd className="mt-2 font-medium">{p.sector}</dd>
               </div>
-              <div className="col-span-2 bg-bg p-5">
+              {p.period && (
+                <div className="bg-bg p-5">
+                  <dt className="label">Period</dt>
+                  <dd className="mt-2 font-medium">{p.period}</dd>
+                </div>
+              )}
+              <div className={`bg-bg p-5 ${p.period ? "col-span-2 lg:col-span-2" : "col-span-2"}`}>
                 <dt className="label">Focus</dt>
                 <dd className="mt-2 font-medium">{p.focus.join(" · ")}</dd>
               </div>
@@ -87,7 +94,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <Container>
             <div
               className={`grid gap-px overflow-hidden rounded-[4px] border border-line bg-line ${
-                p.headline.length > 1 ? "sm:grid-cols-2 lg:grid-cols-4" : ""
+                p.headline.length >= 4 ? "sm:grid-cols-2 lg:grid-cols-4" : p.headline.length > 1 ? "sm:grid-cols-2" : ""
               }`}
             >
               {p.headline.map((m) => (
@@ -191,10 +198,30 @@ export default async function CaseStudyPage({ params }: Props) {
         {p.evidence && (
           <CaseSection index="07" title="Visual evidence">
             <p className="mb-6 text-muted">
-              Screenshots and proof are being added. Ask me directly and I&apos;ll share them.
+              {p.evidence.some((e) => e.image)
+                ? "Unedited screenshots from the project. More available on request."
+                : "Screenshots and proof are being added. Ask me directly and I'll share them."}
             </p>
             <ul className="grid gap-4 sm:grid-cols-2">
-              {p.evidence.map((e) => (
+              {p.evidence.map((e) =>
+                e.image ? (
+                  <li key={e.label} className="sm:col-span-2">
+                    <figure className="overflow-hidden rounded-[4px] border border-line bg-surface">
+                      <div className="flex items-center justify-between border-b border-line px-4 py-3">
+                        <span className="text-sm font-medium">{e.label}</span>
+                        <span className="label">{e.hint}</span>
+                      </div>
+                      <Image
+                        src={e.image.src}
+                        alt={e.image.alt}
+                        width={e.image.width}
+                        height={e.image.height}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                        className="mx-auto h-auto w-full max-w-2xl"
+                      />
+                    </figure>
+                  </li>
+                ) : (
                 <li
                   key={e.label}
                   className="flex aspect-[16/10] flex-col justify-between rounded-[4px] border border-dashed border-line-strong bg-surface/50 p-5"
@@ -208,7 +235,8 @@ export default async function CaseStudyPage({ params }: Props) {
                     <p className="mt-1 text-sm text-dim">{e.hint}</p>
                   </div>
                 </li>
-              ))}
+                ),
+              )}
             </ul>
           </CaseSection>
         )}

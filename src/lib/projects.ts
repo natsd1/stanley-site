@@ -26,6 +26,10 @@ export type Project = {
   index: string;
   role: string;
   sector: string;
+  /** e.g. "2023 — 2024" */
+  period?: string;
+  /** Project logo in /public, shown on the cover graphic */
+  logo?: string;
   tagline: string;
   summary: string;
   pattern: Pattern;
@@ -43,7 +47,12 @@ export type Project = {
   strategy?: { title: string; body: string }[];
   execution?: { title: string; body: string }[];
   results?: Result[];
-  evidence?: { label: string; hint: string }[];
+  /** Proof slots. Add `image` to show a real screenshot; without it the slot shows as a placeholder. */
+  evidence?: {
+    label: string;
+    hint: string;
+    image?: { src: string; width: number; height: number; alt: string };
+  }[];
   takeaways?: string[];
 };
 
@@ -348,16 +357,22 @@ export const projects: Project[] = [
     index: "06",
     role: "Community Manager",
     sector: "Web3 gaming · Cardano",
+    period: "2023 — 2024",
+    logo: "/images/fluxpoint-logo.png",
     tagline: "Keeping a gaming community in the game.",
     summary:
-      "Community management for FluxPoint, a Web3 gaming project on Cardano: keeping players engaged, informed and talking.",
+      "Community Manager for FluxPoint, a Web3 game on Cardano, across a 2,500-member Discord and an 11,000-follower X audience.",
     pattern: "diagonal",
     featured: true,
     hasCaseStudy: true,
-    focus: ["Community management", "Player engagement", "Cardano ecosystem"],
+    focus: ["Community management", "Player engagement", "AMAs & X Spaces", "Cardano ecosystem"],
+    headline: [
+      { kind: "verified", value: "2,500", label: "Discord members" },
+      { kind: "verified", value: "11,000", label: "X followers" },
+    ],
     overview: [
       "FluxPoint is a Web3 gaming project built on Cardano. Gaming communities are some of the most demanding in crypto: players want updates, answers and a reason to stick around between releases.",
-      "I worked as FluxPoint's Community Manager, looking after the community day to day and keeping the conversation between players and the team going.",
+      "From 2023 to 2024 I was FluxPoint's Community Manager, looking after a 2,500-member Discord alongside an 11,000-follower X audience. I ran the community day to day, made the announcements and kept the conversation between players and the team going.",
     ],
     objectives: [
       "Keep the community active and engaged between game updates.",
@@ -378,18 +393,36 @@ export const projects: Project[] = [
       { title: "Community management", body: "Day-to-day running and moderation of the community spaces." },
       { title: "Player engagement", body: "Conversations, activities and updates that kept members coming back." },
       { title: "Team ↔ community bridge", body: "Relayed feedback to the team and kept the community informed." },
+      {
+        title: "AMAs & X Spaces",
+        body: "Organised and announced community AMAs on X Spaces, including the December 2023 year-end AMA with a prize raffle to keep people in until the end.",
+      },
     ],
     results: [
+      { kind: "verified", value: "2,500", label: "Discord community members" },
+      { kind: "verified", value: "11,000", label: "Followers on X" },
+      {
+        kind: "qualitative",
+        label: "Year-end AMA on X Spaces",
+        note: "Announced to the whole community with a prize raffle to keep listeners in until the end (December 2023).",
+      },
       {
         kind: "qualitative",
         label: "Active, looked-after community",
         note: "Day-to-day community management for a Web3 game on Cardano.",
       },
-      { kind: "placeholder", label: "Community size / activity", note: "Add verified figures here." },
-      { kind: "placeholder", label: "Events or campaigns run", note: "Add examples if available." },
     ],
     evidence: [
-      { label: "Community screenshots", hint: "Discord / Telegram activity or events" },
+      {
+        label: "Year-end AMA announcement",
+        hint: "Discord, 20 Dec 2023",
+        image: {
+          src: "/images/work/fluxpoint-ama-announcement.jpg",
+          width: 1287,
+          height: 1222,
+          alt: "Stanley's Discord announcement to the Flux Fam: a year-end AMA on X Spaces on 28 December 2023 at 8 PM, with prizes raffled at the end and questions collected in the ama-questions channel. The post has 13 fire, 9 cheers, 6 party, 5 thumbs-up, 6 rocket and 6 check reactions.",
+        },
+      },
       { label: "Player feedback", hint: "Messages from community members" },
     ],
     takeaways: ["Gaming communities stay for the people. Look after them between releases, not just at launch."],
