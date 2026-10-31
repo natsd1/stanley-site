@@ -25,7 +25,7 @@ export function FeaturedProjects() {
               Selected <Em>work.</Em>
             </span>
           }
-          intro="Trading bots, terminals, education communities and consumer apps. Different products, same job: get attention, keep it, convert it."
+          intro="Trading bots, terminals, a Web3 game and an education community. Different products, same job: get attention, keep it, convert it."
         />
 
         {/* Lead project */}

@@ -144,7 +144,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <CaseSection index="03" title="Objectives">
             <ol className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2">
               {p.objectives.map((o, k) => (
-                <li key={o} className="bg-bg p-6">
+                <li key={o} className="bg-bg p-6 sm:[&:last-child:nth-child(odd)]:col-span-2">
                   <span className="font-mono text-xs text-accent">0{k + 1}</span>
                   <p className="mt-4 text-lg">{o}</p>
                 </li>
@@ -215,12 +215,12 @@ export default async function CaseStudyPage({ params }: Props) {
         {p.evidence && (
           <CaseSection index="07" title="Visual evidence">
             <p className="mb-6 text-muted">
-              {p.evidence.some((e) => e.image || e.video)
-                ? "Unedited screenshots and media from the project. More available on request."
+              {p.evidence.some((e) => e.image || e.video || e.links)
+                ? "Unedited proof from the project. More available on request."
                 : "Screenshots and proof are being added. Ask me directly and I'll share them."}
             </p>
             {/* Masonry columns so tall screenshots and short link cards pack neatly */}
-            <ul className="gap-4 sm:columns-2 [&>li]:mb-4 [&>li]:break-inside-avoid">
+            <ul className={`gap-4 [&>li]:mb-4 [&>li]:break-inside-avoid ${p.evidence.length > 1 ? "sm:columns-2" : "max-w-xl"}`}>
               {p.evidence.map((e) =>
                 e.video ? (
                   <li key={e.label} className="overflow-hidden rounded-[4px] border border-line bg-surface">

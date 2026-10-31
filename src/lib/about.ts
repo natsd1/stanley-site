@@ -29,9 +29,12 @@ export const experience: {
   },
   {
     project: "SocialFun",
-    role: "Social Content & Distribution",
+    role: "Social Media Manager & Clipper",
     slug: "socialfun",
-    points: ["Social content distribution", "Short-form content and creator-focused growth"],
+    points: [
+      "X account and short-form clips for a Fomo and pump.fun trading terminal",
+      "100K+ views in the first month",
+    ],
   },
   {
     project: "FluxPoint",
