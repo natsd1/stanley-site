@@ -12,6 +12,7 @@ export const experience: {
 }[] = [
   {
     project: "OdinBot",
+    period: "2024 — 2026",
     role: "Growth & Operations Lead",
     slug: "odinbot",
     points: [
@@ -23,12 +24,14 @@ export const experience: {
   },
   {
     project: "Axxel",
+    period: "2026",
     role: "Social Media / Growth",
     slug: "axxel",
     points: ["Daily X content and engagement", "Product education and positioning for a trading terminal"],
   },
   {
     project: "SocialFun",
+    period: "2026",
     role: "Social Media Manager & Clipper",
     slug: "socialfun",
     points: [

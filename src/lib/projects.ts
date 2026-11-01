@@ -71,6 +71,7 @@ export const projects: Project[] = [
     index: "01",
     role: "Growth & Operations Lead",
     sector: "Trading bot",
+    period: "2024 — 2026",
     logo: "/images/odinbot-logo.png",
     tagline: "23 followers to an acquisition.",
     summary:
@@ -218,6 +219,7 @@ export const projects: Project[] = [
     index: "02",
     role: "Social Media / Growth",
     sector: "Trading terminal",
+    period: "2026",
     logo: "/images/axxel-logo.png",
     tagline: "Showing up every day, on purpose.",
     summary:
@@ -347,6 +349,7 @@ export const projects: Project[] = [
     index: "04",
     role: "Social Media Manager & Clipper",
     sector: "Trading terminal",
+    period: "2026",
     logo: "/images/socialfun-logo.png",
     tagline: "100K+ views in the first month.",
     summary:
