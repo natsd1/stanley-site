@@ -10,6 +10,13 @@ import { Em, SectionHeading } from "../ui/SectionHeading";
  */
 const screenshots = [
   {
+    src: "/images/testimonials/discord-odin-fantastic-job.jpg",
+    width: 1010,
+    height: 192,
+    source: "Discord · OdinBot",
+    alt: "OdinBot Discord, 29 October 2024. ODIN replies to Fenrir's post of the X analytics: “Yeah doing a fantastic job!!”",
+  },
+  {
     src: "/images/testimonials/discord-culture.jpg",
     width: 1280,
     height: 592,
@@ -46,7 +53,7 @@ export function Testimonials() {
           }
           intro="No polished quotes. These are unedited screenshots from Discord and Telegram, from the communities and teams I've worked with."
         />
-        <ul className="mt-14 grid items-start gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-14 gap-6 md:columns-2 lg:columns-3 [&>li]:mb-6 [&>li]:break-inside-avoid">
           {screenshots.map((s, i) => (
             <li key={s.src}>
               <Reveal delay={0.06 * i}>

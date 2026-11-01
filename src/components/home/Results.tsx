@@ -7,7 +7,7 @@ import { ResultTag } from "../ui/ResultTag";
 
 const stats = [
   { to: 21000, suffix: "+", label: "Social audience built across platforms", source: "OdinBot", href: "/work/odinbot" },
-  { to: 16000, suffix: "", label: "Discord community members", source: "OdinBot", href: "/work/odinbot" },
+  { to: 16900, suffix: "+", label: "Discord community members", source: "OdinBot", href: "/work/odinbot" },
   { to: 10000, suffix: "", label: "Peak active users in that community", source: "OdinBot", href: "/work/odinbot" },
   { to: 500, suffix: "+", label: "African Web3 beginners onboarded & educated", source: "Konoha", href: "/work/konoha" },
 ];

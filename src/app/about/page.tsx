@@ -61,7 +61,7 @@ export default function AboutPage() {
             </p>
             <p>
               The biggest chapter so far was OdinBot, where I was Growth &amp; Operations Lead. We took the X
-              account from 23 followers to 4,600+, built a Discord to 16,000 members and reached 21,000+ followers
+              account from 23 followers to 4,600+, built a Discord to 16,900+ members and reached 21,000+ followers
               across platforms before the project was acquired by Cielo Finance.
             </p>
             <p>

@@ -16,7 +16,7 @@ export const experience: {
     slug: "odinbot",
     points: [
       "Grew X from 23 to 4,600+ followers",
-      "Built a 16,000-member Discord, peaking at 10,000 active users",
+      "Built a 16,900+ member Discord, peaking at 10,000 active users",
       "Growth campaigns, content, memes, Spaces and product launches",
       "Project acquired by Cielo Finance",
     ],

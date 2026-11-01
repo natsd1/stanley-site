@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 
 const ticker = [
   { k: "ODINBOT · X", v: "23 → 4,600+", up: true },
-  { k: "DISCORD", v: "16,000 members", up: true },
+  { k: "DISCORD", v: "16,900+ members", up: true },
   { k: "PEAK ACTIVE", v: "10,000", up: true },
   { k: "COMBINED SOCIAL", v: "21,000+", up: true },
   { k: "ODINBOT VOLUME", v: "$250M", up: true },

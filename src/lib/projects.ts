@@ -74,14 +74,14 @@ export const projects: Project[] = [
     logo: "/images/odinbot-logo.png",
     tagline: "23 followers to an acquisition.",
     summary:
-      "Took OdinBot's X account from 23 followers to 4,600+ and helped build a 16,000-member Discord around a product that did $250M in volume, before it was acquired by Cielo Finance.",
+      "Took OdinBot's X account from 23 followers to 4,600+ and helped build a 16,900+ member Discord around a product that did $250M in volume, before it was acquired by Cielo Finance.",
     pattern: "bars",
     featured: true,
     hasCaseStudy: true,
     focus: ["X growth", "Discord community", "Memes & content", "X Spaces", "Product launches"],
     headline: [
       { kind: "verified", value: "23 → 4,600+", label: "X followers" },
-      { kind: "verified", value: "16,000", label: "Discord members" },
+      { kind: "verified", value: "16,900+", label: "Discord members" },
       { kind: "verified", value: "10,000", label: "Peak active users on Discord" },
       { kind: "verified", value: "21,000+", label: "Combined social followers" },
       { kind: "verified", value: "$250M", label: "Trading volume (project)" },
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     ],
     results: [
       { kind: "verified", value: "4,600+", label: "X followers, up from 23" },
-      { kind: "verified", value: "16,000", label: "Discord community members" },
+      { kind: "verified", value: "16,900+", label: "Discord community members" },
       { kind: "verified", value: "10,000", label: "Peak active users in Discord" },
       { kind: "verified", value: "21,000+", label: "Combined followers across platforms" },
       {
