@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Em, SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
-import { ServiceIcon } from "@/components/ui/Icons";
 import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
@@ -26,8 +25,6 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        index="//"
-        eyebrow="Services"
         title={
           <>
             Six ways I help projects <Em>get noticed and stay noticed.</Em>
@@ -48,7 +45,6 @@ export default function ServicesPage() {
                   href={`#${s.slug}`}
                   className="-ml-px flex gap-3 border-l border-transparent py-2 pl-5 text-sm text-muted transition-colors hover:border-accent hover:text-fg"
                 >
-                  <span className="font-mono text-xs text-dim">0{i + 1}</span>
                   {s.name}
                 </a>
               </li>
@@ -57,15 +53,10 @@ export default function ServicesPage() {
         </nav>
 
         <div className="space-y-24 lg:col-span-9 lg:space-y-32">
-          {services.map((s, i) => (
+          {services.map((s) => (
             <section key={s.slug} id={s.slug} className="scroll-mt-28" aria-labelledby={`${s.slug}-title`}>
               <Reveal>
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm text-accent">0{i + 1}</span>
-                  <span className="h-px flex-1 bg-line" aria-hidden="true" />
-                  <ServiceIcon name={s.icon} className="size-6 text-muted" />
-                </div>
-                <h2 id={`${s.slug}-title`} className="mt-8 text-4xl font-semibold sm:text-5xl lg:text-6xl">
+                <h2 id={`${s.slug}-title`} className="text-4xl font-semibold sm:text-5xl lg:text-6xl">
                   {s.name}
                 </h2>
                 <p className="mt-5 max-w-2xl font-serif text-2xl italic leading-snug text-muted sm:text-3xl">{s.short}</p>
@@ -118,8 +109,6 @@ export default function ServicesPage() {
       <section className="border-t border-line bg-surface/40 py-20 lg:py-28" aria-labelledby="process-title">
         <Container>
           <SectionHeading
-            index="//"
-            eyebrow="Working together"
             title={
               <span id="process-title">
                 No fixed packages. <Em>Just a clear proposal.</Em>
@@ -130,8 +119,8 @@ export default function ServicesPage() {
           <ol className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
               <li key={s.t} className="bg-bg p-6 sm:p-8">
-                <span className="font-mono text-xs text-accent">Step 0{i + 1}</span>
-                <p className="mt-8 text-2xl font-semibold tracking-tight">{s.t}</p>
+                <span className="font-mono text-xs text-accent">0{i + 1}</span>
+                <p className="mt-6 text-2xl font-semibold tracking-tight">{s.t}</p>
                 <p className="mt-3 text-muted">{s.d}</p>
               </li>
             ))}

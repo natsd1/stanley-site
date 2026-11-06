@@ -1,7 +1,7 @@
 import { approach } from "@/lib/services";
 import { Container } from "../ui/Container";
 import { Reveal } from "../ui/Reveal";
-import { Em, Eyebrow } from "../ui/SectionHeading";
+import { Em } from "../ui/SectionHeading";
 
 export function Approach() {
   return (
@@ -9,8 +9,7 @@ export function Approach() {
       <Container className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <Eyebrow index="04">My approach</Eyebrow>
-            <h2 id="approach-title" className="mt-5 text-h2 font-semibold">
+            <h2 id="approach-title" className="text-h2 font-semibold">
               A loop, <Em>not a launch.</Em>
             </h2>
             <p className="mt-6 max-w-md text-lg text-muted">

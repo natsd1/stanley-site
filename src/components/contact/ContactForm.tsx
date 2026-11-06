@@ -190,7 +190,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <Label k="message" hint={`${fields.message.length} / 2000`}>
+        <Label k="message">
           Project description
         </Label>
         <textarea
@@ -257,8 +257,7 @@ export function ContactForm() {
         </p>
       )}
 
-      <div className="flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-sm text-dim">Prefer chat? Telegram is quicker.</p>
+      <div className="flex border-t border-line pt-6 sm:justify-end">
         <button
           type="submit"
           disabled={status === "sending"}

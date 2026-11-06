@@ -85,7 +85,7 @@ export function InsightsBrowser({ posts, categories }: { posts: PostMeta[]; cate
         </div>
       </div>
 
-      <p className="label mt-6" aria-live="polite">
+      <p className={clsx("label mt-6", !category && !query && "sr-only")} aria-live="polite">
         {filtered.length} {filtered.length === 1 ? "article" : "articles"}
         {category && ` in ${category}`}
         {query && ` matching “${query}”`}

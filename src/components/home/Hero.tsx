@@ -29,7 +29,6 @@ export function Hero() {
           <p className="label">
             <span className="text-fg">{site.name}</span> — {site.title}
           </p>
-          <p className="label hidden sm:block">Web3 · Crypto · Emerging tech</p>
         </Reveal>
 
         <div className="grid gap-12 pb-16 pt-10 lg:grid-cols-12 lg:gap-8 lg:pb-24 lg:pt-14">

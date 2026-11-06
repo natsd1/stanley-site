@@ -1,5 +1,4 @@
 import { Container } from "../ui/Container";
-import { Eyebrow } from "../ui/SectionHeading";
 import { Reveal } from "../ui/Reveal";
 
 /** Shared header block for inner pages. */
@@ -10,7 +9,7 @@ export function PageHero({
   intro,
   children,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   index?: string;
   title: React.ReactNode;
   intro?: React.ReactNode;
@@ -21,8 +20,7 @@ export function PageHero({
       <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_85%)] opacity-50" aria-hidden="true" />
       <Container className="relative">
         <Reveal>
-          <Eyebrow index={index}>{eyebrow}</Eyebrow>
-          <h1 className="mt-6 max-w-5xl text-h1 font-semibold">{title}</h1>
+          <h1 className="max-w-5xl text-h1 font-semibold">{title}</h1>
         </Reveal>
         {(intro || children) && (
           <Reveal delay={0.1} className="mt-8 grid gap-8 lg:grid-cols-12">

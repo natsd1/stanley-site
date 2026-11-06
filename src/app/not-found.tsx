@@ -18,7 +18,7 @@ export default function NotFound() {
       <div className="bg-grid pointer-events-none absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" aria-hidden="true" />
       <Container className="relative">
         <p className="label">
-          <span className="text-accent">Error 404</span> · route not found
+          <span className="text-accent">404</span>
         </p>
         <h1 className="mt-6 text-display font-semibold">
           Rugged<span className="text-accent">.</span>

@@ -9,7 +9,6 @@ export function PostRow({ post }: { post: PostMeta }) {
     <article className="group relative grid gap-3 border-b border-line py-8 sm:grid-cols-[9rem_1fr_auto] sm:gap-8">
       <div className="flex gap-3 font-mono text-xs uppercase tracking-[0.08em] text-dim sm:flex-col sm:gap-1.5">
         {post.date && <time dateTime={post.date}>{formatDate(post.date)}</time>}
-        <span className="text-accent">{post.category}</span>
       </div>
       <div>
         <h3 className="text-2xl font-semibold tracking-tight transition-colors group-hover:text-accent sm:text-3xl">

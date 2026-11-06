@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/layout/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { Em, Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
+import { Em, SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { Portrait } from "@/components/home/Portrait";
 import { experience, industries, strengths, tools } from "@/lib/about";
@@ -34,8 +34,6 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        index="//"
-        eyebrow="About"
         title={
           <>
             Crypto lives on the timeline. <Em>I help projects win there.</Em>
@@ -77,15 +75,13 @@ export default function AboutPage() {
       {/* Philosophy */}
       <section className="border-t border-line py-20 lg:py-28" aria-labelledby="philosophy">
         <Container>
-          <Eyebrow index="01">Philosophy</Eyebrow>
-          <h2 id="philosophy" className="sr-only">
-            Philosophy
+          <h2 id="philosophy" className="text-h2 font-semibold">
+            How I <Em>work.</Em>
           </h2>
           <div className="mt-12 grid gap-px overflow-hidden rounded-[4px] border border-line bg-line lg:grid-cols-3">
             {principles.map((p, i) => (
               <Reveal key={p.title} delay={0.06 * i} className="bg-bg p-8 lg:p-10">
-                <span className="font-mono text-xs text-accent">0{i + 1}</span>
-                <h3 className="mt-10 font-serif text-4xl italic leading-[1.05] tracking-[-0.02em] lg:text-[2.6rem]">{p.title}</h3>
+                <h3 className="font-serif text-4xl italic leading-[1.05] tracking-[-0.02em] lg:text-[2.6rem]">{p.title}</h3>
                 <p className="mt-5 text-muted">{p.body}</p>
               </Reveal>
             ))}
@@ -97,8 +93,7 @@ export default function AboutPage() {
       <section className="border-t border-line py-20 lg:py-28">
         <Container className="grid gap-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow index="02">Strengths</Eyebrow>
-            <h2 className="mt-5 text-4xl font-semibold lg:text-5xl">
+            <h2 className="text-4xl font-semibold lg:text-5xl">
               What I&apos;m <Em>good at.</Em>
             </h2>
             <ul className="mt-10 flex flex-wrap gap-2">
@@ -113,18 +108,13 @@ export default function AboutPage() {
             </ul>
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
-            <Eyebrow index="03">Industries</Eyebrow>
-            <h2 className="mt-5 text-4xl font-semibold lg:text-5xl">
+            <h2 className="text-4xl font-semibold lg:text-5xl">
               Markets I <Em>speak.</Em>
             </h2>
             <ul className="mt-10 border-t border-line">
-              {industries.map((ind, i) => (
-                <li key={ind.name} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-line py-5">
-                  <span className="font-mono text-xs text-dim pt-1.5">0{i + 1}</span>
-                  <div>
-                    <p className="text-xl font-medium">{ind.name}</p>
-                    <p className="mt-1 text-muted">{ind.note}</p>
-                  </div>
+              {industries.map((ind) => (
+                <li key={ind.name} className="border-b border-line py-5 text-xl font-medium">
+                  {ind.name}
                 </li>
               ))}
             </ul>
@@ -136,15 +126,12 @@ export default function AboutPage() {
       <section className="border-t border-line bg-surface/40 py-20 lg:py-28" aria-labelledby="experience-title">
         <Container>
           <SectionHeading
-            index="04"
-            eyebrow="Experience"
             title={
               <span id="experience-title">
                 Where I&apos;ve <Em>put in the reps.</Em>
               </span>
             }
-            intro="The projects behind the numbers. Each one links to a full case study."
-          />
+                      />
           <ol className="relative mt-14 border-l border-line-strong pl-8 sm:pl-12">
             {experience.map((e, i) => (
               <li key={e.project} className="relative pb-14 last:pb-0">
@@ -184,14 +171,11 @@ export default function AboutPage() {
       <section className="border-t border-line py-20 lg:py-28" aria-labelledby="tools-title">
         <Container>
           <SectionHeading
-            index="05"
-            eyebrow="Toolkit"
             title={
               <span id="tools-title">
                 Tools <Em>of the trade.</Em>
               </span>
             }
-            intro="Tools change. Taste and timing don't. Still, here's what's usually open on my screen."
           />
           <div className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {tools.map((g) => (

@@ -3,7 +3,6 @@ import { Container } from "../ui/Container";
 import { CountUp } from "../ui/CountUp";
 import { Reveal } from "../ui/Reveal";
 import { Em, SectionHeading } from "../ui/SectionHeading";
-import { ResultTag } from "../ui/ResultTag";
 
 const stats = [
   { to: 21000, suffix: "+", label: "Social audience built across platforms", source: "OdinBot", href: "/work/odinbot" },
@@ -17,14 +16,11 @@ export function Results() {
     <section className="py-24 lg:py-32" aria-labelledby="results-title">
       <Container>
         <SectionHeading
-          index="01"
-          eyebrow="Selected results"
           title={
             <span id="results-title">
               Numbers I can <Em>show receipts for.</Em>
             </span>
           }
-          intro="Every figure comes from projects I worked on directly, and each one links to the case study behind it."
         />
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-[4px] border border-line bg-line lg:grid-cols-12">
@@ -32,7 +28,6 @@ export function Results() {
           <Reveal className="relative bg-bg p-6 sm:p-10 lg:col-span-6">
             <div className="flex items-center justify-between">
               <p className="label">OdinBot · X followers</p>
-              <ResultTag kind="verified" />
             </div>
             <p className="mt-10 flex flex-wrap items-baseline gap-x-5 gap-y-2 font-semibold tracking-[-0.05em]">
               <span className="text-5xl text-dim sm:text-6xl">23</span>
@@ -75,7 +70,6 @@ export function Results() {
                 <Link href={s.href} className="label hover:text-accent">
                   {s.source}
                 </Link>
-                <span className="size-1.5 rounded-full bg-accent" title="Verified metric" aria-hidden="true" />
               </div>
               <p className="mt-8 text-5xl font-semibold tracking-[-0.05em] lg:text-[3.4rem] xl:text-6xl">
                 <CountUp to={s.to} suffix={s.suffix} />

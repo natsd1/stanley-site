@@ -7,7 +7,7 @@ import { XIcon } from "@/components/ui/Icons";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { Em } from "@/components/ui/SectionHeading";
-import { ResultLegend, ResultTag } from "@/components/ui/ResultTag";
+import { ResultTag } from "@/components/ui/ResultTag";
 import { ButtonLink } from "@/components/ui/Button";
 import { ProjectVisual } from "@/components/work/ProjectVisual";
 import { CaseSection } from "@/components/work/CaseSection";
@@ -51,15 +51,12 @@ export default async function CaseStudyPage({ params }: Props) {
             <Link href="/work" className="label inline-flex items-center gap-2 hover:text-fg">
               <ArrowLeft className="size-3.5" aria-hidden="true" /> All work
             </Link>
-            <p className="label mt-10">
-              <span className="text-accent">Case {p.index}</span> · {p.sector}
-            </p>
-            <h1 className="mt-4 text-display font-semibold tracking-[-0.06em]">{p.name}</h1>
+            <h1 className="mt-10 text-display font-semibold tracking-[-0.06em]">{p.name}</h1>
             <p className="mt-4 max-w-3xl font-serif text-3xl italic leading-tight text-muted sm:text-4xl">{p.tagline}</p>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <dl className={`mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-line bg-line ${p.period ? "lg:grid-cols-5" : "lg:grid-cols-4"}`}>
+            <dl className={`mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-[4px] border border-line bg-line ${p.period ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}>
               <div className="bg-bg p-5">
                 <dt className="label">Role</dt>
                 <dd className="mt-2 font-medium">{p.role}</dd>
@@ -74,10 +71,6 @@ export default async function CaseStudyPage({ params }: Props) {
                   <dd className="mt-2 font-medium">{p.period}</dd>
                 </div>
               )}
-              <div className={`bg-bg p-5 ${p.period ? "col-span-2 lg:col-span-2" : "col-span-2"}`}>
-                <dt className="label">Focus</dt>
-                <dd className="mt-2 font-medium">{p.focus.join(" · ")}</dd>
-              </div>
             </dl>
           </Reveal>
         </Container>
@@ -106,8 +99,7 @@ export default async function CaseStudyPage({ params }: Props) {
             >
               {p.headline.map((m) => (
                 <div key={m.label} className="bg-bg p-6 sm:p-8">
-                  <ResultTag kind={m.kind} />
-                  <p className={`mt-8 whitespace-nowrap font-semibold tracking-[-0.04em] ${(m.value ?? "").length > 8 ? "text-4xl" : "text-4xl sm:text-5xl"}`}>{m.value}</p>
+                  <p className={`whitespace-nowrap font-semibold tracking-[-0.04em] ${(m.value ?? "").length > 8 ? "text-4xl" : "text-4xl sm:text-5xl"}`}>{m.value}</p>
                   <p className="mt-2 text-muted">{m.label}</p>
                 </div>
               ))}
@@ -129,24 +121,13 @@ export default async function CaseStudyPage({ params }: Props) {
           </CaseSection>
         )}
 
-        <CaseSection index="02" title="My role">
-          <p className="text-3xl font-semibold tracking-tight">{p.role}</p>
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {p.focus.map((f) => (
-              <li key={f} className="rounded-full border border-line-strong px-4 py-2 text-sm text-muted">
-                {f}
-              </li>
-            ))}
-          </ul>
-        </CaseSection>
 
         {p.objectives && (
           <CaseSection index="03" title="Objectives">
             <ol className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2">
-              {p.objectives.map((o, k) => (
+              {p.objectives.map((o) => (
                 <li key={o} className="bg-bg p-6 sm:[&:last-child:nth-child(odd)]:col-span-2">
-                  <span className="font-mono text-xs text-accent">0{k + 1}</span>
-                  <p className="mt-4 text-lg">{o}</p>
+                  <p className="text-lg">{o}</p>
                 </li>
               ))}
             </ol>
@@ -180,7 +161,7 @@ export default async function CaseStudyPage({ params }: Props) {
         )}
 
         {p.results && (
-          <CaseSection index="06" title="Results" aside={<ResultLegend className="mt-6" />}>
+          <CaseSection index="06" title="Results">
             <ul className="grid gap-px overflow-hidden rounded-[4px] border border-line bg-line sm:grid-cols-2">
               {p.results.map((r) => (
                 <li key={r.label} className="flex flex-col bg-bg p-6 sm:p-8 sm:[&:last-child:nth-child(odd)]:col-span-2">
@@ -214,11 +195,6 @@ export default async function CaseStudyPage({ params }: Props) {
 
         {p.evidence && (
           <CaseSection index="07" title="Visual evidence">
-            <p className="mb-6 text-muted">
-              {p.evidence.some((e) => e.image || e.video || e.links)
-                ? "Unedited proof from the project. More available on request."
-                : "Screenshots and proof are being added. Ask me directly and I'll share them."}
-            </p>
             {/* Masonry columns so tall screenshots and short link cards pack neatly */}
             <ul className={`gap-4 [&>li]:mb-4 [&>li]:break-inside-avoid ${p.evidence.length > 1 ? "sm:columns-2" : "max-w-xl"}`}>
               {p.evidence.map((e) =>
@@ -372,7 +348,6 @@ export default async function CaseStudyPage({ params }: Props) {
                 {k === 1 && <Icon className="size-3.5" aria-hidden="true" />}
               </span>
               <span className="text-4xl font-semibold tracking-tight transition-colors group-hover:text-accent">{c.name}</span>
-              <span className="text-muted">{c.role}</span>
             </Link>
           ))}
         </div>

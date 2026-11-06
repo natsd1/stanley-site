@@ -44,8 +44,6 @@ export function Testimonials() {
     <section className="border-t border-line py-24 lg:py-32" aria-labelledby="testimonials-title">
       <Container>
         <SectionHeading
-          index="05"
-          eyebrow="Testimonials"
           title={
             <span id="testimonials-title">
               Straight from <Em>the group chats.</Em>
@@ -58,10 +56,6 @@ export function Testimonials() {
             <li key={s.src}>
               <Reveal delay={0.06 * i}>
                 <figure className="group overflow-hidden rounded-[4px] border border-line bg-surface transition-colors hover:border-line-strong">
-                  <div className="flex items-center justify-between border-b border-line px-4 py-3">
-                    <span className="label">{s.source}</span>
-                    <span className="font-mono text-[0.65rem] uppercase tracking-[0.08em] text-accent">Unedited</span>
-                  </div>
                   <Image
                     src={s.src}
                     alt={s.alt}

@@ -22,8 +22,6 @@ export default function InsightsPage() {
   return (
     <>
       <PageHero
-        index="//"
-        eyebrow="Insights"
         title={
           <>
             Notes from <Em>the timeline.</Em>
@@ -38,10 +36,7 @@ export default function InsightsPage() {
             <Reveal>
               <article className="group relative grid gap-8 rounded-[4px] border border-line bg-surface p-6 transition-colors hover:border-line-strong sm:p-10 lg:grid-cols-12">
                 <div className="lg:col-span-4">
-                  <p className="label">
-                    <span className="text-accent">Featured</span> · {featured.category}
-                  </p>
-                  <p className="mt-3 font-mono text-xs text-dim">
+                  <p className="font-mono text-xs text-dim">
                     {[
                       featured.date && formatDate(featured.date),
                       featured.readingTime ? `${featured.readingTime} min read` : null,

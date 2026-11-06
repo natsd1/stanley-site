@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { getProject, projectHref, type Project } from "@/lib/projects";
+import { projectHref, type Project } from "@/lib/projects";
 import { ProjectVisual } from "./ProjectVisual";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -25,11 +25,6 @@ export function ProjectCard({ project }: { project: Project }) {
         </span>
       </div>
       <p className="mt-3 max-w-md text-muted">{project.summary}</p>
-      <p className="mt-4 font-mono text-xs text-dim">
-        {project.hasCaseStudy
-          ? "→ Read case study"
-          : `→ Covered in the ${getProject(project.relatedSlug ?? "")?.name ?? "related"} case study`}
-      </p>
     </article>
   );
 }

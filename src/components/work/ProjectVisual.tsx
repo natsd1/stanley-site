@@ -151,13 +151,6 @@ export function ProjectVisual({
         <Art pattern={project.pattern} />
       </svg>
       <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/30 to-transparent" aria-hidden="true" />
-      <div className="absolute inset-x-0 top-0 flex items-start justify-between p-4 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-muted">
-        <span className="rounded-sm bg-bg/80 px-1.5 py-0.5 backdrop-blur-sm">
-          Case {project.index}
-          {project.period && <span className="text-fg"> · {project.period}</span>}
-        </span>
-        <span className="rounded-sm bg-bg/80 px-1.5 py-0.5 backdrop-blur-sm">{project.sector}</span>
-      </div>
       {project.logo && (
         <Image
           src={project.logo}

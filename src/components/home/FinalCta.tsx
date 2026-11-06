@@ -8,8 +8,7 @@ export function FinalCta() {
   return (
     <section className="bg-accent text-ink" aria-labelledby="cta-title">
       <Container className="py-20 lg:py-28">
-        <p className="font-mono text-xs uppercase tracking-[0.1em] text-ink/70">06 — Now booking</p>
-        <h2 id="cta-title" className="mt-6 max-w-5xl text-[clamp(2.6rem,7vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.05em]">
+        <h2 id="cta-title" className="max-w-5xl text-[clamp(2.6rem,7vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.05em]">
           Built something worth <em className="font-serif font-normal italic">paying attention to?</em>
         </h2>
         <div className="mt-12 grid gap-10 border-t border-ink/20 pt-10 lg:grid-cols-12">

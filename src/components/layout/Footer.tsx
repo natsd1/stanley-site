@@ -76,7 +76,6 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col gap-4 border-t border-line pt-8 text-sm text-dim sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Stanley. All rights reserved.</p>
-          <p className="font-mono text-xs uppercase tracking-[0.08em]">Built for the timeline · GM from Stanley</p>
         </div>
       </Container>
     </footer>

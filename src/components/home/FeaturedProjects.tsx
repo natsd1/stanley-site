@@ -6,7 +6,6 @@ import { Reveal } from "../ui/Reveal";
 import { Em, SectionHeading } from "../ui/SectionHeading";
 import { ProjectCard } from "../work/ProjectCard";
 import { ProjectVisual } from "../work/ProjectVisual";
-import { ResultTag } from "../ui/ResultTag";
 
 export function FeaturedProjects() {
   const featured = projects.filter((p) => p.featured);
@@ -18,14 +17,11 @@ export function FeaturedProjects() {
     <section className="border-t border-line py-24 lg:py-32" aria-labelledby="work-title">
       <Container>
         <SectionHeading
-          index="03"
-          eyebrow="Featured projects"
           title={
             <span id="work-title">
               Selected <Em>work.</Em>
             </span>
           }
-          intro="Trading bots, terminals, a Web3 game and an education community. Different products, same job: get attention, keep it, convert it."
         />
 
         {/* Lead project */}
@@ -50,10 +46,7 @@ export function FeaturedProjects() {
                   </div>
                 ))}
               </dl>
-              <div className="mt-4 flex items-center justify-between">
-                <ResultTag kind="verified" />
-                <span className="label text-fg group-hover:text-accent">Case study →</span>
-              </div>
+              <p className="label mt-6 text-fg group-hover:text-accent">Case study →</p>
             </div>
           </article>
         </Reveal>

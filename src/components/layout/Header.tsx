@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { Menu, X as Close } from "lucide-react";
-import { nav, site } from "@/lib/site";
+import { nav } from "@/lib/site";
 import { Logo } from "./Logo";
 import { SocialLinks } from "../ui/SocialLinks";
 
@@ -101,15 +101,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
-          {site.available && (
-            <span className="label flex items-center gap-2 text-muted">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60" />
-                <span className="relative inline-flex size-2 rounded-full bg-accent" />
-              </span>
-              Open to projects
-            </span>
-          )}
           <Link
             href="/contact"
             className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-fg"
@@ -162,7 +153,6 @@ export function Header() {
                         <span className={clsx("text-4xl font-semibold tracking-tight", active ? "text-accent" : "text-fg")}>
                           {item.label}
                         </span>
-                        <span className="label">0{i + 1}</span>
                       </Link>
                     </motion.li>
                   );

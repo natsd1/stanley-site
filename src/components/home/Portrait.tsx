@@ -33,10 +33,6 @@ export function Portrait({ className }: { className?: string }) {
           ),
         )}
       </div>
-      <figcaption className="mt-3 flex items-center justify-between font-mono text-[0.7rem] uppercase tracking-[0.1em] text-dim">
-        <span>Stanley</span>
-        <span>@{site.handle}</span>
-      </figcaption>
     </figure>
   );
 }

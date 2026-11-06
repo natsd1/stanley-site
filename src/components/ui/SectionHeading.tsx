@@ -19,7 +19,7 @@ export function SectionHeading({
   align = "split",
 }: {
   index?: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: React.ReactNode;
   intro?: React.ReactNode;
   className?: string;
@@ -34,8 +34,7 @@ export function SectionHeading({
       )}
     >
       <div className={clsx(align === "split" && "lg:col-span-7")}>
-        <Eyebrow index={index}>{eyebrow}</Eyebrow>
-        <h2 className="mt-5 text-h2 font-semibold">{title}</h2>
+        <h2 className="text-h2 font-semibold">{title}</h2>
       </div>
       {intro && (
         <div className={clsx("text-lg text-muted", align === "split" ? "lg:col-span-4 lg:col-start-9" : "max-w-2xl")}>

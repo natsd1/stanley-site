@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { Eyebrow, Em } from "@/components/ui/SectionHeading";
+import { Em } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { TelegramIcon, XIcon } from "@/components/ui/Icons";
 import { ContactForm } from "@/components/contact/ContactForm";
@@ -32,8 +32,7 @@ export default function ContactPage() {
       <Container className="relative grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <Reveal>
-            <Eyebrow index="//">Work with me</Eyebrow>
-            <h1 className="mt-6 text-h1 font-semibold">
+            <h1 className="text-h1 font-semibold">
               Let&apos;s make <Em>some noise.</Em>
             </h1>
             <p className="mt-8 max-w-md text-lg text-muted">
@@ -44,7 +43,7 @@ export default function ContactPage() {
 
           <Reveal delay={0.1}>
             <ul className="mt-12 border-t border-line">
-              {channels.map(({ label, handle, href, Icon, note }) => (
+              {channels.map(({ label, handle, href, Icon }) => (
                 <li key={label} className="border-b border-line">
                   <a
                     href={href}
@@ -55,11 +54,10 @@ export default function ContactPage() {
                     <span className="grid size-12 place-items-center rounded-full border border-line-strong transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-ink">
                       <Icon className="size-5" />
                     </span>
-                    <span className="flex-1">
-                      <span className="label block">{label}</span>
-                      <span className="mt-1 block text-xl font-medium transition-colors group-hover:text-accent">{handle}</span>
+                    <span className="flex-1 text-xl font-medium transition-colors group-hover:text-accent">
+                      <span className="sr-only">{label}: </span>
+                      {handle}
                     </span>
-                    <span className="hidden text-xs text-dim sm:block">{note}</span>
                     <ArrowUpRight className="size-5 text-dim group-hover:text-accent" aria-hidden="true" />
                   </a>
                 </li>
@@ -84,10 +82,7 @@ export default function ContactPage() {
               href="/work"
               className="group mt-12 flex items-center justify-between rounded-[4px] border border-line p-5 transition-colors hover:border-line-strong hover:bg-surface"
             >
-              <span>
-                <span className="label block">Want to see the work first?</span>
-                <span className="mt-1 block font-medium">Browse case studies</span>
-              </span>
+              <span className="font-medium">See the case studies first</span>
               <ArrowUpRight className="size-5 text-dim transition-colors group-hover:text-accent" aria-hidden="true" />
             </Link>
           </Reveal>
@@ -95,8 +90,7 @@ export default function ContactPage() {
 
         <Reveal delay={0.1} className="lg:col-span-6 lg:col-start-7">
           <div className="rounded-[4px] border border-line bg-bg p-6 sm:p-10">
-            <h2 className="text-2xl font-semibold tracking-tight">Project details</h2>
-            <p className="mt-2 mb-8 text-sm text-muted">All fields required. Takes about two minutes.</p>
+            <h2 className="mb-8 text-2xl font-semibold tracking-tight">Project details</h2>
             <ContactForm />
           </div>
         </Reveal>
